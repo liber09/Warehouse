@@ -22,9 +22,22 @@ public class Product {
     public Integer getId(){
         return this.id;
     }
+
     public void setName(String value){
         if(!value.isEmpty()){
             this.name = value;
+        }
+    }
+
+    public void setCategory(Category value){
+        if(!(value == null)){
+            this.category = value;
+        }
+    }
+
+    public void setRating(int value){
+        if (value >= 0 && value <=10){
+            this.rating = value;
         }
     }
 }

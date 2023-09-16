@@ -31,13 +31,28 @@ public class Warehouse {
     }
 
     public boolean modifyProduct(int id, String name, Category category, int rating) {
-        Optional<Product> product = getProductById(id);
+        Optional<Product> productWrapper = getProductById(id);
 
-        if (!product.isPresent()) {
+        if (!productWrapper.isPresent()) {
             return false;
         } else {
+            Product product = productWrapper.get();
             if (!name.isEmpty()){
+                product.setName(name);
+            } else {
+                System.out.println("Product must have a name");
+            }
 
+            if (!(category == null)){
+                product.setCategory(category);
+            } else {
+                System.out.println("Product must belong to a category");
+            }
+
+            if (rating >= 0 && rating <= 10){
+                product.setRating(rating);
+            } else{
+                System.out.println("Rating must be between 0 and 10");
             }
         }
 
