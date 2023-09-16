@@ -18,4 +18,13 @@ public class Product {
         this.modifiedDate = createdDate;
 
     }
+
+    public Integer getId(){
+        return this.id;
+    }
+    public void setName(String value){
+        if(!value.isEmpty()){
+            this.name = value;
+        }
+    }
 }
