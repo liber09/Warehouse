@@ -8,8 +8,17 @@ import java.util.List;
 import java.util.Optional;
 
 public class Warehouse {
-    private List<Product> products = new ArrayList<>();
-    public boolean AddProduct(String name, Category category, int rating) {
+
+    public Warehouse(){
+
+    }
+
+    public Warehouse(ArrayList<Product> productsForTest){
+        this.products = productsForTest;
+    }
+    private ArrayList<Product> products = new ArrayList<>();
+
+    public boolean addProduct(String name, Category category, int rating) {
         if(name.trim().isEmpty()){
             System.out.println("Can't add products without name");
 
