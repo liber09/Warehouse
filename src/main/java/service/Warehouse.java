@@ -51,21 +51,23 @@ public class Warehouse {
                 product.setName(name);
             } else {
                 System.out.println("Product must have a name");
+                return false;
             }
 
             if (!(category == null)){
                 product.setCategory(category);
             } else {
                 System.out.println("Product must belong to a category");
+                return false;
             }
 
             if (rating >= 0 && rating <= 10){
                 product.setRating(rating);
             } else{
                 System.out.println("Rating must be between 0 and 10");
+                return false;
             }
         }
-
         return true;
     }
 }
