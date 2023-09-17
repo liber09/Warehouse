@@ -1,11 +1,7 @@
 package service;
 
 import entities.Category;
-import entities.Product;
 import org.junit.jupiter.api.Test;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,6 +18,16 @@ public class WarehouseTests {
     void addProductFails(){
         var productAddedOk = warehouse.addProduct("",Category.TSHIRTS,5);
         assertFalse(productAddedOk);
+    }
+
+    @Test
+    void getAllProducts(){
+        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
+        warehouse.addProduct("Calvin Klein skinny jeans",Category.JEANS,10);
+        warehouse.addProduct("RayBan sunglasses",Category.ACCESSORIES,8);
+        var allProducts = warehouse.getAllProducts();
+        assertFalse(allProducts.isEmpty());
+        assertEquals(3,allProducts.size());
     }
 
 }

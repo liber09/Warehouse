@@ -12,11 +12,7 @@ public class Warehouse {
     public Warehouse(){
 
     }
-
-    public Warehouse(ArrayList<Product> productsForTest){
-        this.products = productsForTest;
-    }
-    private ArrayList<Product> products = new ArrayList<>();
+    private final ArrayList<Product> products = new ArrayList<>();
 
     public boolean addProduct(String name, Category category, int rating) {
         if(name.trim().isEmpty()){
@@ -34,6 +30,11 @@ public class Warehouse {
 
         return true;
     }
+
+    public List<Product> getAllProducts(){
+        return products.stream().toList();
+    }
+
     public Optional<Product> getProductById(int id) {
         return products.stream()
                 .filter(p -> p.getId().equals(id)).findFirst();
@@ -42,7 +43,7 @@ public class Warehouse {
     public boolean modifyProduct(int id, String name, Category category, int rating) {
         Optional<Product> productWrapper = getProductById(id);
 
-        if (!productWrapper.isPresent()) {
+        if (productWrapper.isEmpty()) {
             return false;
         } else {
             Product product = productWrapper.get();
