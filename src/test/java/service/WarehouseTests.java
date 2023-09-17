@@ -66,5 +66,24 @@ public class WarehouseTests {
         var result = warehouse.modifyProduct(1,"",Category.TSHIRTS,5);
         assertFalse(result);
     }
+    @Test
+    void modifyProductCategorySuccess(){
+        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
+        var productWrapper = warehouse.getProductById(1);
+        productWrapper.ifPresent(product -> assertEquals(Category.TSHIRTS, product.getCategory()));
+        var result = warehouse.modifyProduct(1,"Calvin Klein tshirt",Category.LONGSLEVE,5);
+        assertTrue(result);
+        productWrapper = warehouse.getProductById(1);
+        productWrapper.ifPresent(product -> assertEquals(Category.LONGSLEVE, product.getCategory()));
+
+    }
+    @Test
+    void modifyProductCategoryFails(){
+        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
+        var productWrapper = warehouse.getProductById(1);
+        productWrapper.ifPresent(product -> assertEquals("Diesel tshirt", product.getName()));
+        var result = warehouse.modifyProduct(1,"Diesel tshirt",null,5);
+        assertFalse(result);
+    }
 
 }

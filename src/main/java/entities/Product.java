@@ -45,4 +45,12 @@ public class Product {
     public String getName(){
         return this.name;
     }
+
+    public Category getCategory(){
+        return this.category;
+    }
+
+    public int getRating(){
+        return this.rating;
+    }
 }

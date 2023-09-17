@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="GetProductByIdTests">
+    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="ModifyProduct tests and fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/Warehouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/service/WarehouseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/service/WarehouseTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,8 +67,8 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.WarehouseTests.modifyProductNameFails">
-    <configuration name="WarehouseTests.getProductByIdProductFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.WarehouseTests.modifyProductCategoryFails">
+    <configuration name="WarehouseTests.modifyProductCategoryFails" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Warehouse" />
       <extension name="coverage">
         <pattern>
@@ -78,13 +78,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="service" />
       <option name="MAIN_CLASS_NAME" value="service.WarehouseTests" />
-      <option name="METHOD_NAME" value="getProductByIdProductFound" />
+      <option name="METHOD_NAME" value="modifyProductCategoryFails" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WarehouseTests.getProductByIdProductNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WarehouseTests.modifyProductCategorySuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Warehouse" />
       <extension name="coverage">
         <pattern>
@@ -94,7 +94,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="service" />
       <option name="MAIN_CLASS_NAME" value="service.WarehouseTests" />
-      <option name="METHOD_NAME" value="getProductByIdProductNotFound" />
+      <option name="METHOD_NAME" value="modifyProductCategorySuccess" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -163,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WarehouseTests.modifyProductCategoryFails" />
+        <item itemvalue="JUnit.WarehouseTests.modifyProductCategorySuccess" />
         <item itemvalue="JUnit.WarehouseTests.modifyProductNameFails" />
         <item itemvalue="JUnit.WarehouseTests.modifyProductNameSuccess" />
         <item itemvalue="JUnit.WarehouseTests.modifyProductName" />
-        <item itemvalue="JUnit.WarehouseTests.getProductByIdProductFound" />
-        <item itemvalue="JUnit.WarehouseTests.getProductByIdProductNotFound" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +184,7 @@
       <workItem from="1694837780020" duration="150000" />
       <workItem from="1694837933363" duration="1068000" />
       <workItem from="1694891668070" duration="3937000" />
-      <workItem from="1694920870237" duration="3642000" />
+      <workItem from="1694920870237" duration="4376000" />
     </task>
     <task id="LOCAL−00001" summary="Created getProductById and Working on modifyProduct">
       <option name="closed" value="true" />
@@ -228,7 +228,14 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1694923768280</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="ModifyProduct tests and fixes">
+      <option name="closed" value="true" />
+      <created>1694924556991</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1694924556991</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +247,7 @@
     <MESSAGE value="Created tests for addProduct" />
     <MESSAGE value="Created getAllProducts with test" />
     <MESSAGE value="GetProductByIdTests" />
-    <option name="LAST_COMMIT_MESSAGE" value="GetProductByIdTests" />
+    <MESSAGE value="ModifyProduct tests and fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="ModifyProduct tests and fixes" />
   </component>
 </project>
