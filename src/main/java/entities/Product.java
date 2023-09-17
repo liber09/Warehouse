@@ -3,14 +3,15 @@ package entities;
 import java.util.Date;
 
 public class Product {
-    private int id;
+    private final int id;
     private String name;
     private Category category;
     private int rating;
     private final Date createdDate;
     private Date modifiedDate;
 
-    public Product(String name, Category category, int rating) {
+    public Product(int id, String name, Category category, int rating) {
+        this.id = id;
         this.name = name;
         this.category = category;
         this.rating = rating;
@@ -39,5 +40,9 @@ public class Product {
         if (value >= 0 && value <=10){
             this.rating = value;
         }
+    }
+
+    public String getName(){
+        return this.name;
     }
 }

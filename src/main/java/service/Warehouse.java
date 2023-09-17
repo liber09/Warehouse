@@ -24,8 +24,8 @@ public class Warehouse {
         if (category == null){
             category = Category.OTHER;
         }
-
-        Product newProduct = new Product(name,category,rating);
+        int id = products.size()+1;
+        Product newProduct = new Product(id,name,category,rating);
         products.add(newProduct);
 
         return true;

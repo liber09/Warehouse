@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="Created tests for addProduct">
+    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="Created getAllProducts with test">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/Warehouse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/service/WarehouseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/service/WarehouseTests.java" afterDir="false" />
     </list>
@@ -66,23 +68,8 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.WarehouseTests.getAllProducts">
-    <configuration name="AppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JavaTemplate" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.AppTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WarehouseTests.addProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.WarehouseTests.getProductByIdProductFound">
+    <configuration name="WarehouseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Warehouse" />
       <extension name="coverage">
         <pattern>
@@ -92,8 +79,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="service" />
       <option name="MAIN_CLASS_NAME" value="service.WarehouseTests" />
-      <option name="METHOD_NAME" value="addProduct" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -130,6 +116,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WarehouseTests.getProductByIdProductFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Warehouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.WarehouseTests" />
+      <option name="METHOD_NAME" value="getProductByIdProductFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WarehouseTests.getProductByIdProductNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Warehouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.WarehouseTests" />
+      <option name="METHOD_NAME" value="getProductByIdProductNotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Java23" />
       <method v="2">
@@ -145,10 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WarehouseTests.getProductByIdProductFound" />
+        <item itemvalue="JUnit.WarehouseTests.getProductByIdProductNotFound" />
+        <item itemvalue="JUnit.WarehouseTests" />
         <item itemvalue="JUnit.WarehouseTests.getAllProducts" />
         <item itemvalue="JUnit.WarehouseTests.addProductFails" />
-        <item itemvalue="JUnit.WarehouseTests.addProduct" />
-        <item itemvalue="JUnit.AppTest" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +184,7 @@
       <workItem from="1694837780020" duration="150000" />
       <workItem from="1694837933363" duration="1068000" />
       <workItem from="1694891668070" duration="3937000" />
-      <workItem from="1694920870237" duration="1284000" />
+      <workItem from="1694920870237" duration="2735000" />
     </task>
     <task id="LOCAL−00001" summary="Created getProductById and Working on modifyProduct">
       <option name="closed" value="true" />
@@ -195,7 +214,14 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1694921037109</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="Created getAllProducts with test">
+      <option name="closed" value="true" />
+      <created>1694922388074</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1694922388074</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +231,7 @@
     <MESSAGE value="Created getProductById and Working on modifyProduct" />
     <MESSAGE value="Created modifyProduct method and helper setters in Product class" />
     <MESSAGE value="Created tests for addProduct" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created tests for addProduct" />
+    <MESSAGE value="Created getAllProducts with test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created getAllProducts with test" />
   </component>
 </project>
