@@ -22,34 +22,28 @@ public class WarehouseTests {
 
     @Test
     void getAllProducts(){
-        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
-        warehouse.addProduct("Calvin Klein skinny jeans",Category.JEANS,10);
-        warehouse.addProduct("RayBan sunglasses",Category.ACCESSORIES,8);
+        setupTestProducts();
         var allProducts = warehouse.getAllProducts();
         assertFalse(allProducts.isEmpty());
-        assertEquals(3,allProducts.size());
+        assertEquals(9,allProducts.size());
     }
 
     @Test
     void getProductByIdProductFound(){
-        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
-        warehouse.addProduct("Calvin Klein skinny jeans",Category.JEANS,10);
-        warehouse.addProduct("RayBan sunglasses",Category.ACCESSORIES,8);
-        var productWrapper = warehouse.getProductById(2);
+        setupTestProducts();
+        var productWrapper = warehouse.getProductById(9);
         productWrapper.ifPresent(product -> assertEquals("Calvin Klein skinny jeans", product.getName()));
     }
     @Test
     void getProductByIdProductNotFound(){
-        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
-        warehouse.addProduct("Calvin Klein skinny jeans",Category.JEANS,10);
-        warehouse.addProduct("RayBan sunglasses",Category.ACCESSORIES,8);
-        var product = warehouse.getProductById(4);
+        setupTestProducts();
+        var product = warehouse.getProductById(10);
         assertTrue(product.isEmpty());
     }
 
     @Test
     void modifyProductNameSuccess(){
-        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
+        setupTestProducts();
         var productWrapper = warehouse.getProductById(1);
         productWrapper.ifPresent(product -> assertEquals("Diesel tshirt", product.getName()));
         var result = warehouse.modifyProduct(1,"Calvin Klein tshirt",Category.TSHIRTS,5);
@@ -60,7 +54,7 @@ public class WarehouseTests {
     }
     @Test
     void modifyProductNameFails(){
-        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
+        setupTestProducts();
         var productWrapper = warehouse.getProductById(1);
         productWrapper.ifPresent(product -> assertEquals("Diesel tshirt", product.getName()));
         var result = warehouse.modifyProduct(1,"",Category.TSHIRTS,5);
@@ -68,7 +62,7 @@ public class WarehouseTests {
     }
     @Test
     void modifyProductCategorySuccess(){
-        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
+        setupTestProducts();
         var productWrapper = warehouse.getProductById(1);
         productWrapper.ifPresent(product -> assertEquals(Category.TSHIRTS, product.getCategory()));
         var result = warehouse.modifyProduct(1,"Calvin Klein tshirt",Category.LONGSLEVE,5);
@@ -79,7 +73,7 @@ public class WarehouseTests {
     }
     @Test
     void modifyProductCategoryFails(){
-        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
+        setupTestProducts();
         var productWrapper = warehouse.getProductById(1);
         productWrapper.ifPresent(product -> assertEquals("Diesel tshirt", product.getName()));
         var result = warehouse.modifyProduct(1,"Diesel tshirt",null,5);
@@ -88,7 +82,7 @@ public class WarehouseTests {
 
     @Test
     void modifyProductRatingSuccess(){
-        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
+        setupTestProducts();
         var productWrapper = warehouse.getProductById(1);
         productWrapper.ifPresent(product -> assertEquals(5, product.getRating()));
         var result = warehouse.modifyProduct(1,"Calvin Klein tshirt",Category.LONGSLEVE,6);
@@ -99,7 +93,7 @@ public class WarehouseTests {
     }
     @Test
     void modifyProductRatingTooHighFails(){
-        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
+        setupTestProducts();
         var productWrapper = warehouse.getProductById(1);
         productWrapper.ifPresent(product -> assertEquals(5, product.getRating()));
         var result = warehouse.modifyProduct(1,"Diesel tshirt",Category.TSHIRTS,11);
@@ -107,11 +101,32 @@ public class WarehouseTests {
     }
     @Test
     void modifyProductRatingNegativeNumberFails(){
-        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
+        setupTestProducts();
         var productWrapper = warehouse.getProductById(1);
         productWrapper.ifPresent(product -> assertEquals(5, product.getRating()));
         var result = warehouse.modifyProduct(1,"Diesel tshirt",Category.TSHIRTS,-1);
         assertFalse(result);
+    }
+
+    @Test
+    void getAllProductsInCategorySortedAlphabetically(){
+        setupTestProducts();
+        var allTshirts = warehouse.getAllProductsInCategory(Category.TSHIRTS);
+        assertFalse(allTshirts.isEmpty());
+        assertEquals(3,allTshirts.size());
+    }
+
+    private void setupTestProducts(){
+        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
+        warehouse.addProduct("Calvin Klein tshirt",Category.TSHIRTS,7);
+        warehouse.addProduct("Alpha industries tshirt",Category.TSHIRTS,7);
+        warehouse.addProduct("H&M jeans",Category.JEANS,3);
+        warehouse.addProduct("Softpants",Category.PANTS,4);
+        warehouse.addProduct("Rayban sunglasses",Category.ACCESSORIES,5);
+        warehouse.addProduct("Adidas cap",Category.HATS,5);
+        warehouse.addProduct("Nike cap",Category.HATS,6);
+        warehouse.addProduct("Calvin Klein skinny jeans",Category.JEANS,10);
+
     }
 
 }

@@ -4,8 +4,10 @@ import entities.Category;
 import entities.Product;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Warehouse {
 
@@ -33,6 +35,10 @@ public class Warehouse {
 
     public List<Product> getAllProducts(){
         return products.stream().toList();
+    }
+
+    public List<Product> getAllProductsInCategory(Category category){
+        return products.stream().filter(p -> p.getCategory().equals(category)).sorted(Comparator.comparing(Product::getName)).collect(Collectors.toList());
     }
 
     public Optional<Product> getProductById(int id) {
