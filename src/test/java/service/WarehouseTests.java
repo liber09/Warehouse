@@ -25,19 +25,19 @@ public class WarehouseTests {
         setupTestProducts();
         var allProducts = warehouse.getAllProducts();
         assertFalse(allProducts.isEmpty());
-        assertEquals(9,allProducts.size());
+        assertEquals(10,allProducts.size());
     }
 
     @Test
     void getProductByIdProductFound(){
         setupTestProducts();
-        var productWrapper = warehouse.getProductById(9);
+        var productWrapper = warehouse.getProductById(10);
         productWrapper.ifPresent(product -> assertEquals("Calvin Klein skinny jeans", product.getName()));
     }
     @Test
     void getProductByIdProductNotFound(){
         setupTestProducts();
-        var product = warehouse.getProductById(10);
+        var product = warehouse.getProductById(11);
         assertTrue(product.isEmpty());
     }
 
@@ -111,9 +111,9 @@ public class WarehouseTests {
     @Test
     void getAllProductsInCategorySortedAlphabetically(){
         setupTestProducts();
-        var allTshirts = warehouse.getAllProductsInCategory(Category.TSHIRTS);
-        assertFalse(allTshirts.isEmpty());
-        assertEquals(3,allTshirts.size());
+        var allShirts = warehouse.getAllProductsInCategory(Category.TSHIRTS);
+        assertFalse(allShirts.isEmpty());
+        assertEquals(4,allShirts.size());
     }
 
     private void setupTestProducts(){
@@ -125,6 +125,7 @@ public class WarehouseTests {
         warehouse.addProduct("Rayban sunglasses",Category.ACCESSORIES,5);
         warehouse.addProduct("Adidas cap",Category.HATS,5);
         warehouse.addProduct("Nike cap",Category.HATS,6);
+        warehouse.addProduct("Hugo Boss tshirt",Category.TSHIRTS,10);
         warehouse.addProduct("Calvin Klein skinny jeans",Category.JEANS,10);
 
     }
