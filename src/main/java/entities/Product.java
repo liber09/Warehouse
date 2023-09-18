@@ -1,7 +1,6 @@
 package entities;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Product {
     private final int id;
@@ -65,5 +64,9 @@ public class Product {
 
     public LocalDate getCreatedDate(){
         return this.createdDate;
+    }
+
+    public LocalDate getModifiedDate(){
+        return this.modifiedDate;
     }
 }

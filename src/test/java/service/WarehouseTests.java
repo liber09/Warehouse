@@ -3,8 +3,6 @@ package service;
 import entities.Category;
 import org.junit.jupiter.api.Test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -139,6 +137,18 @@ public class WarehouseTests {
         assertTrue(newProducts.isEmpty());
     }
 
+    @Test
+    void getAllModifiedProducts(){
+        setupTestProducts();
+        warehouse.modifyProduct(5,"Pink softpants",Category.PANTS,4);
+        warehouse.modifyProduct(8,"Nike cap",Category.HATS,8);
+        warehouse.modifyProduct(1,"Diesel shirt",Category.LONGSLEVE,5);
+        var modifiedProducts = warehouse.getAllModifiedProducts();
+        assertFalse(modifiedProducts.isEmpty());
+        assertEquals(3,modifiedProducts.size());
+    }
+
+
     private void setupTestProducts(){
         LocalDate createdDate = LocalDate.of(2023, Month.SEPTEMBER, 15);
         warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5,createdDate);
@@ -151,7 +161,6 @@ public class WarehouseTests {
         warehouse.addProduct("Nike cap",Category.HATS,6,createdDate);
         warehouse.addProduct("Hugo Boss tshirt",Category.TSHIRTS,10,createdDate);
         warehouse.addProduct("Calvin Klein skinny jeans",Category.JEANS,10,createdDate);
-
     }
 
 }

@@ -4,8 +4,6 @@ import entities.Category;
 import entities.Product;
 
 import java.time.LocalDate;
-import java.time.Month;
-import java.time.MonthDay;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -43,6 +41,10 @@ public class Warehouse {
 
     public List<Product> getAllProductsCreatedSince(LocalDate createdDate){
         return products.stream().filter(p -> p.getCreatedDate().isAfter(createdDate)).collect(Collectors.toList());
+    }
+
+    public List<Product> getAllModifiedProducts(){
+        return products.stream().filter(p -> !p.getModifiedDate().isEqual(p.getCreatedDate())).collect(Collectors.toList());
     }
 
     public Optional<Product> getProductById(int id) {
