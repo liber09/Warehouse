@@ -65,6 +65,10 @@ public class Warehouse {
         return categoriesWithProducts;
     }
 
+    public long getNumberOfProductsInCategory(Category category){
+        return products.stream().filter(p ->p.getCategory().equals(category)).count();
+    }
+
     public boolean modifyProduct(int id, String name, Category category, int rating) {
         Optional<Product> productWrapper = getProductById(id);
 

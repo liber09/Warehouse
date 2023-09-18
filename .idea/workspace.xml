@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="getAllModifiedProducts incl tests">
+    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="getAllCategoriesWithProducts incl test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/Warehouse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/service/WarehouseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/service/WarehouseTests.java" afterDir="false" />
@@ -67,23 +67,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.WarehouseTests.getAllCategoriesWithProducts">
-    <configuration name="WarehouseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Warehouse" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.WarehouseTests" />
-      <option name="METHOD_NAME" value="modifyProductRatingNegativeNumberFails" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.WarehouseTests.getNumberOfProductsInCategory">
     <configuration name="WarehouseTests.getAllCategoriesWithProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Warehouse" />
       <extension name="coverage">
@@ -148,6 +132,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WarehouseTests.getNumberOfProductsInCategory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Warehouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.WarehouseTests" />
+      <option name="METHOD_NAME" value="getNumberOfProductsInCategory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Java23" />
       <method v="2">
@@ -163,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WarehouseTests.getNumberOfProductsInCategory" />
         <item itemvalue="JUnit.WarehouseTests.getAllCategoriesWithProducts" />
         <item itemvalue="JUnit.WarehouseTests.getAllModifiedProducts" />
         <item itemvalue="JUnit.WarehouseTests.getAllProductsCreatedSinceDateProductsNotFound" />
         <item itemvalue="JUnit.WarehouseTests.getAllProductsCreatedSinceDate" />
-        <item itemvalue="JUnit.WarehouseTests" />
       </list>
     </recent_temporary>
   </component>
@@ -186,7 +186,7 @@
       <workItem from="1694891668070" duration="3937000" />
       <workItem from="1694920870237" duration="7356000" />
       <workItem from="1694971788314" duration="1458000" />
-      <workItem from="1694973253857" duration="6335000" />
+      <workItem from="1694973253857" duration="6608000" />
     </task>
     <task id="LOCAL−00001" summary="Created getProductById and Working on modifyProduct">
       <option name="closed" value="true" />
@@ -279,7 +279,14 @@
       <option name="presentableId" value="LOCAL−00013" />
       <updated>1695006931051</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL−00014" summary="getAllCategoriesWithProducts incl test">
+      <option name="closed" value="true" />
+      <created>1695008587998</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1695008587998</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +305,8 @@
     <MESSAGE value="small modification" />
     <MESSAGE value="GetAllProductsSinceDate incl tests. Also changed from Date to LocalDate" />
     <MESSAGE value="getAllModifiedProducts incl tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="getAllModifiedProducts incl tests" />
+    <MESSAGE value="getAllCategoriesWithProducts incl test" />
+    <option name="LAST_COMMIT_MESSAGE" value="getAllCategoriesWithProducts incl test" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

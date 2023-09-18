@@ -156,6 +156,13 @@ public class WarehouseTests {
         assertEquals(5,categoriesWithProducts.size());
     }
 
+    @Test
+    void getNumberOfProductsInCategory(){
+        setupTestProducts();
+        var productCount = warehouse.getNumberOfProductsInCategory(Category.HATS);
+        assertEquals(2,productCount);
+    }
+
 
     private void setupTestProducts(){
         LocalDate createdDate = LocalDate.of(2023, Month.SEPTEMBER, 15);
