@@ -148,6 +148,14 @@ public class WarehouseTests {
         assertEquals(3,modifiedProducts.size());
     }
 
+    @Test
+    void getAllCategoriesWithProducts(){
+        setupTestProducts();
+        var categoriesWithProducts = warehouse.getAllCategoriesWithOneOrMoreProducts();
+        assertFalse(categoriesWithProducts.isEmpty());
+        assertEquals(5,categoriesWithProducts.size());
+    }
+
 
     private void setupTestProducts(){
         LocalDate createdDate = LocalDate.of(2023, Month.SEPTEMBER, 15);

@@ -35,6 +35,11 @@ public class Warehouse {
         return products.stream().toList();
     }
 
+    public Optional<Product> getProductById(int id) {
+        return products.stream()
+                .filter(p -> p.getId().equals(id)).findFirst();
+    }
+
     public List<Product> getAllProductsInCategory(Category category){
         return products.stream().filter(p -> p.getCategory().equals(category)).sorted(Comparator.comparing(Product::getName)).collect(Collectors.toList());
     }
@@ -47,9 +52,17 @@ public class Warehouse {
         return products.stream().filter(p -> !p.getModifiedDate().isEqual(p.getCreatedDate())).collect(Collectors.toList());
     }
 
-    public Optional<Product> getProductById(int id) {
-        return products.stream()
-                .filter(p -> p.getId().equals(id)).findFirst();
+    public List<Category> getAllCategoriesWithOneOrMoreProducts(){
+        List<Category> categoriesWithProducts = new ArrayList<>();
+        List<Product> tempProducts;
+        for (Category category : EnumSet.allOf(Category.class)) {
+            tempProducts = getAllProductsInCategory(category);
+            if (!tempProducts.isEmpty()) {
+                categoriesWithProducts.add(category);
+            }
+            tempProducts.clear();
+        }
+        return categoriesWithProducts;
     }
 
     public boolean modifyProduct(int id, String name, Category category, int rating) {
