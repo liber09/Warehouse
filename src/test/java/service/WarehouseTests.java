@@ -169,7 +169,7 @@ public class WarehouseTests {
         warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5,createdDate);
         warehouse.addProduct("Calvin Klein tshirt",Category.TSHIRTS,7,createdDate);
         warehouse.addProduct("Alpha industries tshirt",Category.TSHIRTS,7,createdDate);
-        warehouse.addProduct("H&M jeans",Category.JEANS,3,createdDate);
+        warehouse.addProduct("H&M jeans",Category.JEANS,5,createdDate);
         warehouse.addProduct("Softpants",Category.PANTS,4,createdDate);
         warehouse.addProduct("Rayban sunglasses",Category.ACCESSORIES,5,createdDate);
         warehouse.addProduct("Adidas cap",Category.HATS,5,createdDate);
