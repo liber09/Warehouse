@@ -1,5 +1,6 @@
 package entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Product {
@@ -7,15 +8,15 @@ public class Product {
     private String name;
     private Category category;
     private int rating;
-    private final Date createdDate;
-    private Date modifiedDate;
+    private final LocalDate createdDate;
+    private LocalDate modifiedDate;
 
-    public Product(int id, String name, Category category, int rating) {
+    public Product(int id, String name, Category category, int rating, LocalDate creationDate) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.rating = rating;
-        this.createdDate = new Date();
+        this.createdDate = creationDate;
         this.modifiedDate = createdDate;
 
     }
@@ -42,6 +43,14 @@ public class Product {
         }
     }
 
+    public void setModifedDate(LocalDate value){
+        if (value.isAfter(this.createdDate)){
+            this.modifiedDate = value;
+        } else {
+            System.out.println("Modified date cannot be before creation date");
+        }
+    }
+
     public String getName(){
         return this.name;
     }
@@ -52,5 +61,9 @@ public class Product {
 
     public int getRating(){
         return this.rating;
+    }
+
+    public LocalDate getCreatedDate(){
+        return this.createdDate;
     }
 }

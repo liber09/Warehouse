@@ -3,6 +3,11 @@ package service;
 import entities.Category;
 import org.junit.jupiter.api.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class WarehouseTests {
@@ -10,13 +15,13 @@ public class WarehouseTests {
 
     @Test
     void addProductSuccess(){
-        var productAddedOk = warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
+        var productAddedOk = warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5,LocalDate.now());
         assertTrue(productAddedOk);
     }
 
     @Test
     void addProductFails(){
-        var productAddedOk = warehouse.addProduct("",Category.TSHIRTS,5);
+        var productAddedOk = warehouse.addProduct("",Category.TSHIRTS,5,LocalDate.now());
         assertFalse(productAddedOk);
     }
 
@@ -116,17 +121,36 @@ public class WarehouseTests {
         assertEquals(4,allShirts.size());
     }
 
+    @Test
+    void getAllProductsCreatedSinceDateProductsFound() {
+        setupTestProducts();
+        warehouse.addProduct("Cool sunglasses", Category.ACCESSORIES, 7, LocalDate.now());
+        warehouse.addProduct("Metallica longsleve", Category.LONGSLEVE, 6, LocalDate.now());
+        LocalDate lastDate = LocalDate.of(2023, Month.SEPTEMBER, 15);
+        var newProducts = warehouse.getAllProductsCreatedSince(lastDate);
+        assertFalse(newProducts.isEmpty());
+        assertEquals(2,newProducts.size());
+    }
+
+    @Test
+    void getAllProductsCreatedSinceDateProductsNotFound() {
+        setupTestProducts();
+        var newProducts = warehouse.getAllProductsCreatedSince(LocalDate.now());
+        assertTrue(newProducts.isEmpty());
+    }
+
     private void setupTestProducts(){
-        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5);
-        warehouse.addProduct("Calvin Klein tshirt",Category.TSHIRTS,7);
-        warehouse.addProduct("Alpha industries tshirt",Category.TSHIRTS,7);
-        warehouse.addProduct("H&M jeans",Category.JEANS,3);
-        warehouse.addProduct("Softpants",Category.PANTS,4);
-        warehouse.addProduct("Rayban sunglasses",Category.ACCESSORIES,5);
-        warehouse.addProduct("Adidas cap",Category.HATS,5);
-        warehouse.addProduct("Nike cap",Category.HATS,6);
-        warehouse.addProduct("Hugo Boss tshirt",Category.TSHIRTS,10);
-        warehouse.addProduct("Calvin Klein skinny jeans",Category.JEANS,10);
+        LocalDate createdDate = LocalDate.of(2023, Month.SEPTEMBER, 15);
+        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5,createdDate);
+        warehouse.addProduct("Calvin Klein tshirt",Category.TSHIRTS,7,createdDate);
+        warehouse.addProduct("Alpha industries tshirt",Category.TSHIRTS,7,createdDate);
+        warehouse.addProduct("H&M jeans",Category.JEANS,3,createdDate);
+        warehouse.addProduct("Softpants",Category.PANTS,4,createdDate);
+        warehouse.addProduct("Rayban sunglasses",Category.ACCESSORIES,5,createdDate);
+        warehouse.addProduct("Adidas cap",Category.HATS,5,createdDate);
+        warehouse.addProduct("Nike cap",Category.HATS,6,createdDate);
+        warehouse.addProduct("Hugo Boss tshirt",Category.TSHIRTS,10,createdDate);
+        warehouse.addProduct("Calvin Klein skinny jeans",Category.JEANS,10,createdDate);
 
     }
 
