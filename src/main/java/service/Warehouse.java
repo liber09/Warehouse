@@ -5,7 +5,6 @@ import entities.Product;
 
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Warehouse {
     private final ArrayList<Product> products = new ArrayList<>();
@@ -37,15 +36,15 @@ public class Warehouse {
     }
 
     public List<Product> getAllProductsInCategory(Category category){
-        return products.stream().filter(p -> p.getCategory().equals(category)).sorted(Comparator.comparing(Product::getName)).collect(Collectors.toList());
+        return products.stream().filter(p -> p.getCategory().equals(category)).sorted(Comparator.comparing(Product::getName)).toList();
     }
 
     public List<Product> getAllProductsCreatedSince(LocalDate createdDate){
-        return products.stream().filter(p -> p.getCreatedDate().isAfter(createdDate)).collect(Collectors.toList());
+        return products.stream().filter(p -> p.getCreatedDate().isAfter(createdDate)).toList();
     }
 
     public List<Product> getAllModifiedProducts(){
-        return products.stream().filter(p -> !p.getModifiedDate().isEqual(p.getCreatedDate())).collect(Collectors.toList());
+        return products.stream().filter(p -> !p.getModifiedDate().isEqual(p.getCreatedDate())).toList();
     }
 
     public List<Category> getAllCategoriesWithOneOrMoreProducts(){
@@ -56,7 +55,6 @@ public class Warehouse {
             if (!tempProducts.isEmpty()) {
                 categoriesWithProducts.add(category);
             }
-            tempProducts.clear();
         }
         return categoriesWithProducts;
     }
@@ -71,7 +69,7 @@ public class Warehouse {
                 .filter(p -> p.getRating().equals(maxRating) &&
                         p.getCreatedDate().getMonth().equals(LocalDate.now().getMonth()))
                 .sorted(Comparator.comparing(Product::getCreatedDate))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public boolean modifyProduct(int id, String name, Category category, int rating) {

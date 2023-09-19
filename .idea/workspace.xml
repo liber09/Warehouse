@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="removed unnecessary test print">
+    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="removed unused empty constructor">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/Warehouse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +82,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WarehouseTests.getAllCategoriesWithProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WarehouseTests.getAllProductsCreatedSinceDateProductsFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Warehouse" />
       <extension name="coverage">
         <pattern>
@@ -91,7 +92,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="service" />
       <option name="MAIN_CLASS_NAME" value="service.WarehouseTests" />
-      <option name="METHOD_NAME" value="getAllCategoriesWithProducts" />
+      <option name="METHOD_NAME" value="getAllProductsCreatedSinceDateProductsFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -161,10 +162,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.WarehouseTests" />
+        <item itemvalue="JUnit.WarehouseTests.getAllProductsCreatedSinceDateProductsFound" />
         <item itemvalue="JUnit.WarehouseTests.getMapWithFirstLetterAndProductCount" />
         <item itemvalue="JUnit.WarehouseTests.getProductsWithMaxRationCreatedCurrentMonth" />
         <item itemvalue="JUnit.WarehouseTests.getNumberOfProductsInCategory" />
-        <item itemvalue="JUnit.WarehouseTests.getAllCategoriesWithProducts" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +184,7 @@
       <workItem from="1694891668070" duration="3937000" />
       <workItem from="1694920870237" duration="7356000" />
       <workItem from="1694971788314" duration="1458000" />
-      <workItem from="1694973253857" duration="10457000" />
+      <workItem from="1694973253857" duration="11492000" />
     </task>
     <task id="LOCAL−00001" summary="Created getProductById and Working on modifyProduct">
       <option name="closed" value="true" />
@@ -325,7 +326,14 @@
       <option name="presentableId" value="LOCAL−00020" />
       <updated>1695092159812</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL−00021" summary="removed unused empty constructor">
+      <option name="closed" value="true" />
+      <created>1695092285482</created>
+      <option name="number" value="LOCAL−00021" />
+      <option name="presentableId" value="LOCAL−00021" />
+      <updated>1695092285482</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,7 +368,8 @@
     <MESSAGE value="getLatestProductsWithMaxRating incl test" />
     <MESSAGE value="map with first letter of product name and product count incl test" />
     <MESSAGE value="removed unnecessary test print" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed unnecessary test print" />
+    <MESSAGE value="removed unused empty constructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed unused empty constructor" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
