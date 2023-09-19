@@ -123,7 +123,6 @@ public class Warehouse {
                 firstLetterCount.put(tempProductFirstLetter, firstLetterCount.get(tempProductFirstLetter) + 1);
             }
         }
-        System.out.println(firstLetterCount);
         return firstLetterCount;
     }
 }
