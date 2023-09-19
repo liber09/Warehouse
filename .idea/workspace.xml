@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="map with first letter of product name and product count incl test">
+    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="removed unnecessary test print">
       <change beforePath="$PROJECT_DIR$/src/main/java/service/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/Warehouse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +183,7 @@
       <workItem from="1694891668070" duration="3937000" />
       <workItem from="1694920870237" duration="7356000" />
       <workItem from="1694971788314" duration="1458000" />
-      <workItem from="1694973253857" duration="10114000" />
+      <workItem from="1694973253857" duration="10457000" />
     </task>
     <task id="LOCAL−00001" summary="Created getProductById and Working on modifyProduct">
       <option name="closed" value="true" />
@@ -318,7 +318,14 @@
       <option name="presentableId" value="LOCAL−00019" />
       <updated>1695091878730</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL−00020" summary="removed unnecessary test print">
+      <option name="closed" value="true" />
+      <created>1695092159812</created>
+      <option name="number" value="LOCAL−00020" />
+      <option name="presentableId" value="LOCAL−00020" />
+      <updated>1695092159812</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +359,8 @@
     <MESSAGE value="getNumberOfProductsInCategory incl test" />
     <MESSAGE value="getLatestProductsWithMaxRating incl test" />
     <MESSAGE value="map with first letter of product name and product count incl test" />
-    <option name="LAST_COMMIT_MESSAGE" value="map with first letter of product name and product count incl test" />
+    <MESSAGE value="removed unnecessary test print" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed unnecessary test print" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

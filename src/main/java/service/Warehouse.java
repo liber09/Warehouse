@@ -8,22 +8,18 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Warehouse {
-
-    public Warehouse(){
-
-    }
     private final ArrayList<Product> products = new ArrayList<>();
 
     public boolean addProduct(String name, Category category, int rating, LocalDate creationDate) {
         if(name.trim().isEmpty()){
             System.out.println("Can't add products without name");
-
             return false;
         }
 
         if (category == null){
             category = Category.OTHER;
         }
+
         int id = products.size()+1;
         Product newProduct = new Product(id,name,category,rating, creationDate);
         products.add(newProduct);
