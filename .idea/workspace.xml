@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="getNumberOfProductsInCategory incl test">
+    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="getLatestProductsWithMaxRating incl test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/Warehouse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/service/WarehouseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/service/WarehouseTests.java" afterDir="false" />
     </list>
@@ -68,7 +67,22 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.WarehouseTests.getProductsWithMaxRationCreatedCurrentMonth">
+  <component name="RunManager" selected="JUnit.WarehouseTests">
+    <configuration name="WarehouseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Warehouse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.WarehouseTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WarehouseTests.getAllCategoriesWithProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Warehouse" />
       <extension name="coverage">
@@ -85,7 +99,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WarehouseTests.getAllModifiedProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WarehouseTests.getMapWithFirstLetterAndProductCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Warehouse" />
       <extension name="coverage">
         <pattern>
@@ -95,23 +109,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="service" />
       <option name="MAIN_CLASS_NAME" value="service.WarehouseTests" />
-      <option name="METHOD_NAME" value="getAllModifiedProducts" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WarehouseTests.getAllProductsCreatedSinceDateProductsNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Warehouse" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.WarehouseTests" />
-      <option name="METHOD_NAME" value="getAllProductsCreatedSinceDateProductsNotFound" />
+      <option name="METHOD_NAME" value="getMapWithFirstLetterAndProductCount" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -164,11 +162,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WarehouseTests" />
+        <item itemvalue="JUnit.WarehouseTests.getMapWithFirstLetterAndProductCount" />
         <item itemvalue="JUnit.WarehouseTests.getProductsWithMaxRationCreatedCurrentMonth" />
         <item itemvalue="JUnit.WarehouseTests.getNumberOfProductsInCategory" />
         <item itemvalue="JUnit.WarehouseTests.getAllCategoriesWithProducts" />
-        <item itemvalue="JUnit.WarehouseTests.getAllModifiedProducts" />
-        <item itemvalue="JUnit.WarehouseTests.getAllProductsCreatedSinceDateProductsNotFound" />
       </list>
     </recent_temporary>
   </component>
@@ -187,7 +185,7 @@
       <workItem from="1694891668070" duration="3937000" />
       <workItem from="1694920870237" duration="7356000" />
       <workItem from="1694971788314" duration="1458000" />
-      <workItem from="1694973253857" duration="8182000" />
+      <workItem from="1694973253857" duration="9865000" />
     </task>
     <task id="LOCAL−00001" summary="Created getProductById and Working on modifyProduct">
       <option name="closed" value="true" />
@@ -308,7 +306,14 @@
       <option name="presentableId" value="LOCAL−00017" />
       <updated>1695008954380</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL−00018" summary="getLatestProductsWithMaxRating incl test">
+      <option name="closed" value="true" />
+      <created>1695090005491</created>
+      <option name="number" value="LOCAL−00018" />
+      <option name="presentableId" value="LOCAL−00018" />
+      <updated>1695090005491</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +345,8 @@
     <MESSAGE value="getAllModifiedProducts incl tests" />
     <MESSAGE value="getAllCategoriesWithProducts incl test" />
     <MESSAGE value="getNumberOfProductsInCategory incl test" />
-    <option name="LAST_COMMIT_MESSAGE" value="getNumberOfProductsInCategory incl test" />
+    <MESSAGE value="getLatestProductsWithMaxRating incl test" />
+    <option name="LAST_COMMIT_MESSAGE" value="getLatestProductsWithMaxRating incl test" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

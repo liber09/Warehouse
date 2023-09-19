@@ -166,10 +166,23 @@ public class WarehouseTests {
     @Test
     void getProductsWithMaxRatingCreatedCurrentMonth(){
         setupTestProducts();
-
         var latestProductsWithMaxRating = warehouse.getProductsWithMaxRatingSortedByDate();
         assertFalse(latestProductsWithMaxRating.isEmpty());
         assertEquals(2, latestProductsWithMaxRating.size());
+    }
+
+    @Test
+    void getMapWithFirstLetterAndProductCount(){
+        setupTestProducts();
+        var firstLetterAndProductCountMap = warehouse.getProductLetterAndProductCount();
+        assertFalse(firstLetterAndProductCountMap.isEmpty());
+        assertEquals(2,firstLetterAndProductCountMap.get("A"));
+        assertEquals(1,firstLetterAndProductCountMap.get("R"));
+        assertEquals(2,firstLetterAndProductCountMap.get("C"));
+        assertEquals(1,firstLetterAndProductCountMap.get("S"));
+        assertEquals(1,firstLetterAndProductCountMap.get("D"));
+        assertEquals(2,firstLetterAndProductCountMap.get("H"));
+        assertEquals(2,firstLetterAndProductCountMap.get("N"));
     }
 
 

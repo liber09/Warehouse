@@ -112,4 +112,18 @@ public class Warehouse {
         }
         return true;
     }
+
+    public Map<String,Integer> getProductLetterAndProductCount(){
+        Map<String,Integer> firstLetterCount = new HashMap<>();
+        for (Product product : products) {
+            String tempProductFirstLetter = product.getName().substring(0, 1);
+            if (!firstLetterCount.containsKey(tempProductFirstLetter)) {
+                firstLetterCount.put(tempProductFirstLetter, 1);
+            } else {
+                firstLetterCount.put(tempProductFirstLetter, firstLetterCount.get(tempProductFirstLetter) + 1);
+            }
+        }
+        System.out.println(firstLetterCount);
+        return firstLetterCount;
+    }
 }
