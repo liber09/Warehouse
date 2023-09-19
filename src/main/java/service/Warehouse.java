@@ -69,6 +69,15 @@ public class Warehouse {
         return products.stream().filter(p ->p.getCategory().equals(category)).count();
     }
 
+    public List<Product> getProductsWithMaxRatingSortedByDate(){
+        int maxRating = 10;
+        return products.stream()
+                .filter(p -> p.getRating().equals(maxRating) &&
+                        p.getCreatedDate().getMonth().equals(LocalDate.now().getMonth()))
+                .sorted(Comparator.comparing(Product::getCreatedDate))
+                .collect(Collectors.toList());
+    }
+
     public boolean modifyProduct(int id, String name, Category category, int rating) {
         Optional<Product> productWrapper = getProductById(id);
 

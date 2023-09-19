@@ -28,7 +28,7 @@ public class WarehouseTests {
         setupTestProducts();
         var allProducts = warehouse.getAllProducts();
         assertFalse(allProducts.isEmpty());
-        assertEquals(10,allProducts.size());
+        assertEquals(11,allProducts.size());
     }
 
     @Test
@@ -40,7 +40,7 @@ public class WarehouseTests {
     @Test
     void getProductByIdProductNotFound(){
         setupTestProducts();
-        var product = warehouse.getProductById(11);
+        var product = warehouse.getProductById(12);
         assertTrue(product.isEmpty());
     }
 
@@ -153,7 +153,7 @@ public class WarehouseTests {
         setupTestProducts();
         var categoriesWithProducts = warehouse.getAllCategoriesWithOneOrMoreProducts();
         assertFalse(categoriesWithProducts.isEmpty());
-        assertEquals(5,categoriesWithProducts.size());
+        assertEquals(6,categoriesWithProducts.size());
     }
 
     @Test
@@ -163,9 +163,20 @@ public class WarehouseTests {
         assertEquals(2,productCount);
     }
 
+    @Test
+    void getProductsWithMaxRatingCreatedCurrentMonth(){
+        setupTestProducts();
+
+        var latestProductsWithMaxRating = warehouse.getProductsWithMaxRatingSortedByDate();
+        assertFalse(latestProductsWithMaxRating.isEmpty());
+        assertEquals(2, latestProductsWithMaxRating.size());
+    }
+
 
     private void setupTestProducts(){
-        LocalDate createdDate = LocalDate.of(2023, Month.SEPTEMBER, 15);
+        LocalDate createdDate = LocalDate.of(2023, LocalDate.now().getMonth(), 15);
+        LocalDate dateLastMonth = LocalDate.of(2023, Month.AUGUST, 15);
+
         warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5,createdDate);
         warehouse.addProduct("Calvin Klein tshirt",Category.TSHIRTS,7,createdDate);
         warehouse.addProduct("Alpha industries tshirt",Category.TSHIRTS,7,createdDate);
@@ -176,6 +187,6 @@ public class WarehouseTests {
         warehouse.addProduct("Nike cap",Category.HATS,6,createdDate);
         warehouse.addProduct("Hugo Boss tshirt",Category.TSHIRTS,10,createdDate);
         warehouse.addProduct("Calvin Klein skinny jeans",Category.JEANS,10,createdDate);
+        warehouse.addProduct("Nike shoes", Category.SHOES, 10, dateLastMonth);
     }
-
 }

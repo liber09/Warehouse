@@ -58,7 +58,7 @@ public class Product {
         return this.category;
     }
 
-    public int getRating(){
+    public Integer getRating(){
         return this.rating;
     }
 
