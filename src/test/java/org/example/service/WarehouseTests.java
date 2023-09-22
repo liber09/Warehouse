@@ -1,6 +1,7 @@
-package service;
+package org.example.service;
 
-import entities.Category;
+import org.example.entities.Category;
+import org.example.service.Warehouse;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

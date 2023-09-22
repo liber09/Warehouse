@@ -1,7 +1,7 @@
-package service;
+package org.example.service;
 
-import entities.Category;
-import entities.Product;
+import org.example.entities.Category;
+import org.example.entities.Product;
 
 import java.time.LocalDate;
 import java.util.*;
