@@ -2,12 +2,14 @@ package org.example.service;
 
 import org.example.entities.Category;
 import org.example.entities.Product;
+import org.example.entities.ProductRecord;
 
 import java.time.LocalDate;
 import java.util.*;
 
 public class Warehouse {
     private final ArrayList<Product> products = new ArrayList<>();
+    private final ArrayList<ProductRecord> productRecords = createRecords();
 
     public boolean addProduct(String name, Category category, int rating, LocalDate creationDate) {
         if(name.trim().isEmpty()){
@@ -21,13 +23,23 @@ public class Warehouse {
 
         int id = products.size()+1;
         Product newProduct = new Product(id,name,category,rating, creationDate);
+
         products.add(newProduct);
+        createRecords();
+        productRecords.add(new ProductRecord(newProduct.getId(),newProduct.getName(),newProduct.getCategory(),newProduct.getRating(),newProduct.getCreatedDate(),newProduct.getModifiedDate()));
 
         return true;
     }
 
-    public List<Product> getAllProducts(){
-        return products.stream().toList();
+    public List<ProductRecord> getAllProducts(){
+        createRecords();
+        return productRecords.stream().toList();
+    }
+
+    public Optional<ProductRecord> getProductRecordById(int id) {
+        createRecords();
+        return productRecords.stream()
+                .filter(p -> p.id() == id).findFirst();
     }
 
     public Optional<Product> getProductById(int id) {
@@ -35,21 +47,25 @@ public class Warehouse {
                 .filter(p -> p.getId().equals(id)).findFirst();
     }
 
-    public List<Product> getAllProductsInCategory(Category category){
-        return products.stream().filter(p -> p.getCategory().equals(category)).sorted(Comparator.comparing(Product::getName)).toList();
+    public List<ProductRecord> getAllProductsInCategory(Category category){
+        createRecords();
+        return productRecords.stream().filter(p -> p.category().equals(category)).sorted(Comparator.comparing(ProductRecord::name)).toList();
     }
 
-    public List<Product> getAllProductsCreatedSince(LocalDate createdDate){
-        return products.stream().filter(p -> p.getCreatedDate().isAfter(createdDate)).toList();
+    public List<ProductRecord> getAllProductsCreatedSince(LocalDate createdDate){
+        createRecords();
+        return productRecords.stream().filter(p -> p.creationDate().isAfter(createdDate)).toList();
     }
 
-    public List<Product> getAllModifiedProducts(){
-        return products.stream().filter(p -> !p.getModifiedDate().isEqual(p.getCreatedDate())).toList();
+    public List<ProductRecord> getAllModifiedProducts(){
+        createRecords();
+        return productRecords.stream().filter(p -> !p.modifiedDate().isEqual(p.creationDate())).toList();
     }
 
     public List<Category> getAllCategoriesWithOneOrMoreProducts(){
+        createRecords();
         List<Category> categoriesWithProducts = new ArrayList<>();
-        List<Product> tempProducts;
+        List<ProductRecord> tempProducts;
         for (Category category : EnumSet.allOf(Category.class)) {
             tempProducts = getAllProductsInCategory(category);
             if (!tempProducts.isEmpty()) {
@@ -63,18 +79,19 @@ public class Warehouse {
         return products.stream().filter(p ->p.getCategory().equals(category)).count();
     }
 
-    public List<Product> getProductsWithMaxRatingSortedByDate(){
+    public List<ProductRecord> getProductsWithMaxRatingSortedByDate(){
+        createRecords();
         int maxRating = 10;
-        return products.stream()
-                .filter(p -> p.getRating().equals(maxRating) &&
-                        p.getCreatedDate().getMonth().equals(LocalDate.now().getMonth()))
-                .sorted(Comparator.comparing(Product::getCreatedDate))
+        return productRecords.stream()
+                .filter(p -> p.rating() == maxRating &&
+                        p.creationDate().getMonth().equals(LocalDate.now().getMonth()))
+                .sorted(Comparator.comparing(ProductRecord::creationDate))
                 .toList();
     }
 
     public boolean modifyProduct(int id, String name, Category category, int rating) {
+        createRecords();
         Optional<Product> productWrapper = getProductById(id);
-
         if (productWrapper.isEmpty()) {
             return false;
         } else {
@@ -82,7 +99,7 @@ public class Warehouse {
             Product product = productWrapper.get();
             if (!name.isEmpty()){
                 product.setName(name);
-                product.setModifedDate(modifiedDate);
+                product.setModifiedDate(modifiedDate);
             } else {
                 System.out.println("Product must have a name");
                 return false;
@@ -90,7 +107,7 @@ public class Warehouse {
 
             if (!(category == null)){
                 product.setCategory(category);
-                product.setModifedDate(modifiedDate);
+                product.setModifiedDate(modifiedDate);
             } else {
                 System.out.println("Product must belong to a category");
                 return false;
@@ -98,12 +115,15 @@ public class Warehouse {
 
             if (rating >= 0 && rating <= 10){
                 product.setRating(rating);
-                product.setModifedDate(modifiedDate);
+                product.setModifiedDate(modifiedDate);
             } else{
                 System.out.println("Rating must be between 0 and 10");
                 return false;
             }
+            productRecords.clear();
+            createRecords();
         }
+
         return true;
     }
 
@@ -118,5 +138,13 @@ public class Warehouse {
             }
         }
         return firstLetterCount;
+    }
+
+    private ArrayList<ProductRecord> createRecords(){
+        ArrayList<ProductRecord> productRecordList = new ArrayList<>();
+        for (Product tempProduct : products) {
+            productRecordList.add(new ProductRecord(tempProduct.getId(), tempProduct.getName(), tempProduct.getCategory(), tempProduct.getRating(), tempProduct.getCreatedDate(), tempProduct.getModifiedDate()));
+        }
+        return productRecordList;
     }
 }

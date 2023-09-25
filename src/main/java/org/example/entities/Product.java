@@ -42,7 +42,7 @@ public class Product {
         }
     }
 
-    public void setModifedDate(LocalDate value){
+    public void setModifiedDate(LocalDate value){
         if (value.isAfter(this.createdDate)){
             this.modifiedDate = value;
         } else {

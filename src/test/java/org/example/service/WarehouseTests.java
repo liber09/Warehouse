@@ -35,51 +35,51 @@ public class WarehouseTests {
     @Test
     void getProductByIdProductFound(){
         setupTestProducts();
-        var productWrapper = warehouse.getProductById(10);
-        productWrapper.ifPresent(product -> assertEquals("Calvin Klein skinny jeans", product.getName()));
+        var productWrapper = warehouse.getProductRecordById(10);
+        productWrapper.ifPresent(product -> assertEquals("Calvin Klein skinny jeans", product.name()));
     }
     @Test
     void getProductByIdProductNotFound(){
         setupTestProducts();
-        var product = warehouse.getProductById(12);
+        var product = warehouse.getProductRecordById(12);
         assertTrue(product.isEmpty());
     }
 
     @Test
     void modifyProductNameSuccess(){
         setupTestProducts();
-        var productWrapper = warehouse.getProductById(1);
-        productWrapper.ifPresent(product -> assertEquals("Diesel tshirt", product.getName()));
+        var productWrapper = warehouse.getProductRecordById(1);
+        productWrapper.ifPresent(product -> assertEquals("Diesel tshirt", product.name()));
         var result = warehouse.modifyProduct(1,"Calvin Klein tshirt",Category.TSHIRTS,5);
         assertTrue(result);
-        productWrapper = warehouse.getProductById(1);
-        productWrapper.ifPresent(product -> assertEquals("Calvin Klein tshirt", product.getName()));
+        productWrapper = warehouse.getProductRecordById(1);
+        productWrapper.ifPresent(product -> assertEquals("Calvin Klein tshirt", product.name()));
 
     }
     @Test
     void modifyProductNameFails(){
         setupTestProducts();
-        var productWrapper = warehouse.getProductById(1);
-        productWrapper.ifPresent(product -> assertEquals("Diesel tshirt", product.getName()));
+        var productWrapper = warehouse.getProductRecordById(1);
+        productWrapper.ifPresent(product -> assertEquals("Diesel tshirt", product.name()));
         var result = warehouse.modifyProduct(1,"",Category.TSHIRTS,5);
         assertFalse(result);
     }
     @Test
     void modifyProductCategorySuccess(){
         setupTestProducts();
-        var productWrapper = warehouse.getProductById(1);
-        productWrapper.ifPresent(product -> assertEquals(Category.TSHIRTS, product.getCategory()));
+        var productWrapper = warehouse.getProductRecordById(1);
+        productWrapper.ifPresent(product -> assertEquals(Category.TSHIRTS, product.category()));
         var result = warehouse.modifyProduct(1,"Calvin Klein tshirt",Category.LONGSLEVE,5);
         assertTrue(result);
-        productWrapper = warehouse.getProductById(1);
-        productWrapper.ifPresent(product -> assertEquals(Category.LONGSLEVE, product.getCategory()));
+        productWrapper = warehouse.getProductRecordById(1);
+        productWrapper.ifPresent(product -> assertEquals(Category.LONGSLEVE, product.category()));
 
     }
     @Test
     void modifyProductCategoryFails(){
         setupTestProducts();
-        var productWrapper = warehouse.getProductById(1);
-        productWrapper.ifPresent(product -> assertEquals("Diesel tshirt", product.getName()));
+        var productWrapper = warehouse.getProductRecordById(1);
+        productWrapper.ifPresent(product -> assertEquals("Diesel tshirt", product.name()));
         var result = warehouse.modifyProduct(1,"Diesel tshirt",null,5);
         assertFalse(result);
     }
@@ -87,27 +87,27 @@ public class WarehouseTests {
     @Test
     void modifyProductRatingSuccess(){
         setupTestProducts();
-        var productWrapper = warehouse.getProductById(1);
-        productWrapper.ifPresent(product -> assertEquals(5, product.getRating()));
+        var productWrapper = warehouse.getProductRecordById(1);
+        productWrapper.ifPresent(product -> assertEquals(5, product.rating()));
         var result = warehouse.modifyProduct(1,"Calvin Klein tshirt",Category.LONGSLEVE,6);
         assertTrue(result);
-        productWrapper = warehouse.getProductById(1);
-        productWrapper.ifPresent(product -> assertEquals(6, product.getRating()));
+        productWrapper = warehouse.getProductRecordById(1);
+        productWrapper.ifPresent(product -> assertEquals(6, product.rating()));
 
     }
     @Test
     void modifyProductRatingTooHighFails(){
         setupTestProducts();
-        var productWrapper = warehouse.getProductById(1);
-        productWrapper.ifPresent(product -> assertEquals(5, product.getRating()));
+        var productWrapper = warehouse.getProductRecordById(1);
+        productWrapper.ifPresent(product -> assertEquals(5, product.rating()));
         var result = warehouse.modifyProduct(1,"Diesel tshirt",Category.TSHIRTS,11);
         assertFalse(result);
     }
     @Test
     void modifyProductRatingNegativeNumberFails(){
         setupTestProducts();
-        var productWrapper = warehouse.getProductById(1);
-        productWrapper.ifPresent(product -> assertEquals(5, product.getRating()));
+        var productWrapper = warehouse.getProductRecordById(1);
+        productWrapper.ifPresent(product -> assertEquals(5, product.rating()));
         var result = warehouse.modifyProduct(1,"Diesel tshirt",Category.TSHIRTS,-1);
         assertFalse(result);
     }
