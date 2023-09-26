@@ -58,6 +58,7 @@ public class Warehouse {
     }
 
     public List<ProductRecord> getAllModifiedProducts(){
+        productRecords.clear();
         createRecords();
         return productRecords.stream().filter(p -> !p.modifiedDate().isEqual(p.creationDate())).toList();
     }

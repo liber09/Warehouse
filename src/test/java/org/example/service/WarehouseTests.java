@@ -125,7 +125,7 @@ public class WarehouseTests {
         setupTestProducts();
         warehouse.addProduct("Cool sunglasses", Category.ACCESSORIES, 7, LocalDate.now());
         warehouse.addProduct("Metallica longsleve", Category.LONGSLEVE, 6, LocalDate.now());
-        LocalDate lastDate = LocalDate.of(2023, Month.SEPTEMBER, 15);
+        LocalDate lastDate = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth()).minusDays(7);
         var newProducts = warehouse.getAllProductsCreatedSince(lastDate);
         assertFalse(newProducts.isEmpty());
         assertEquals(2,newProducts.size());
@@ -167,6 +167,9 @@ public class WarehouseTests {
     @Test
     void getProductsWithMaxRatingCreatedCurrentMonth(){
         setupTestProducts();
+        LocalDate createdDate = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth());
+        warehouse.addProduct("Cool sunglasses", Category.ACCESSORIES, 10, createdDate);
+        warehouse.addProduct("Metallica longsleve", Category.LONGSLEVE, 10, createdDate);
         var latestProductsWithMaxRating = warehouse.getProductsWithMaxRatingSortedByDate();
         assertFalse(latestProductsWithMaxRating.isEmpty());
         assertEquals(2, latestProductsWithMaxRating.size());
@@ -188,19 +191,19 @@ public class WarehouseTests {
 
 
     private void setupTestProducts(){
-        LocalDate createdDate = LocalDate.of(2023, LocalDate.now().getMonth(), 15);
-        LocalDate dateLastMonth = LocalDate.of(2023, Month.AUGUST, 15);
+        LocalDate dateLastMonth = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonth().minus(1), LocalDate.now().getDayOfMonth());
+        LocalDate createdDate = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth());
 
-        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5,createdDate);
-        warehouse.addProduct("Calvin Klein tshirt",Category.TSHIRTS,7,createdDate);
-        warehouse.addProduct("Alpha industries tshirt",Category.TSHIRTS,7,createdDate);
-        warehouse.addProduct("H&M jeans",Category.JEANS,5,createdDate);
-        warehouse.addProduct("Softpants",Category.PANTS,4,createdDate);
-        warehouse.addProduct("Rayban sunglasses",Category.ACCESSORIES,5,createdDate);
-        warehouse.addProduct("Adidas cap",Category.HATS,5,createdDate);
-        warehouse.addProduct("Nike cap",Category.HATS,6,createdDate);
-        warehouse.addProduct("Hugo Boss tshirt",Category.TSHIRTS,10,createdDate);
-        warehouse.addProduct("Calvin Klein skinny jeans",Category.JEANS,10,createdDate);
+        warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5,dateLastMonth);
+        warehouse.addProduct("Calvin Klein tshirt",Category.TSHIRTS,7,dateLastMonth);
+        warehouse.addProduct("Alpha industries tshirt",Category.TSHIRTS,7,dateLastMonth);
+        warehouse.addProduct("H&M jeans",Category.JEANS,5,dateLastMonth);
+        warehouse.addProduct("Softpants",Category.PANTS,4,dateLastMonth);
+        warehouse.addProduct("Rayban sunglasses",Category.ACCESSORIES,5,dateLastMonth);
+        warehouse.addProduct("Adidas cap",Category.HATS,5,dateLastMonth);
+        warehouse.addProduct("Nike cap",Category.HATS,6,dateLastMonth);
+        warehouse.addProduct("Hugo Boss tshirt",Category.TSHIRTS,10,dateLastMonth);
+        warehouse.addProduct("Calvin Klein skinny jeans",Category.JEANS,10,dateLastMonth);
         warehouse.addProduct("Nike shoes", Category.SHOES, 10, dateLastMonth);
     }
 }
