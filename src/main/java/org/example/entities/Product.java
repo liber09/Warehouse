@@ -17,7 +17,6 @@ public class Product {
         this.rating = rating;
         this.createdDate = creationDate;
         this.modifiedDate = createdDate;
-
     }
 
     public Integer getId(){

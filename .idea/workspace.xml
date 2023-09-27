@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="1 test still fails">
+    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="finally all tests are working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/service/WarehouseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/service/WarehouseTests.java" afterDir="false" />
     </list>
@@ -164,8 +165,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.WarehouseTests (1)" />
-        <item itemvalue="JUnit.WarehouseTests.getAllProductsCreatedSinceDateProductsFound (1)" />
         <item itemvalue="JUnit.WarehouseTests.getAllModifiedProducts" />
+        <item itemvalue="JUnit.WarehouseTests.getAllProductsCreatedSinceDateProductsFound (1)" />
         <item itemvalue="JUnit.WarehouseTests.modifyProductRatingSuccess" />
         <item itemvalue="JUnit.WarehouseTests.modifyProductCategorySuccess" />
       </list>
@@ -190,7 +191,7 @@
       <workItem from="1695368938764" duration="681000" />
       <workItem from="1695585542496" duration="18000" />
       <workItem from="1695585563305" duration="6931000" />
-      <workItem from="1695760517473" duration="936000" />
+      <workItem from="1695760517473" duration="3466000" />
     </task>
     <task id="LOCAL−00001" summary="Created getProductById and Working on modifyProduct">
       <option name="closed" value="true" />
@@ -360,7 +361,14 @@
       <option name="presentableId" value="LOCAL−00024" />
       <updated>1695610493591</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL−00025" summary="rewriting some tests">
+      <option name="closed" value="true" />
+      <created>1695761511865</created>
+      <option name="number" value="LOCAL−00025" />
+      <option name="presentableId" value="LOCAL−00025" />
+      <updated>1695761511865</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,14 +407,16 @@
     <MESSAGE value="cleanup code" />
     <MESSAGE value="Move packages" />
     <MESSAGE value="1 test still fails" />
-    <option name="LAST_COMMIT_MESSAGE" value="1 test still fails" />
+    <MESSAGE value="rewriting some tests" />
+    <MESSAGE value="finally all tests are working" />
+    <option name="LAST_COMMIT_MESSAGE" value="finally all tests are working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/org/example/service/WarehouseTests.java</url>
-          <line>155</line>
+          <line>151</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

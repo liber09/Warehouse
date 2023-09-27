@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Warehouse {
     private final ArrayList<Product> products = new ArrayList<>();
-    private final ArrayList<ProductRecord> productRecords = createRecords();
+    private ArrayList<ProductRecord> productRecords = createRecords();
 
     public boolean addProduct(String name, Category category, int rating, LocalDate creationDate) {
         if(name.trim().isEmpty()){
@@ -59,8 +59,8 @@ public class Warehouse {
 
     public List<ProductRecord> getAllModifiedProducts(){
         productRecords.clear();
-        createRecords();
-        return productRecords.stream().filter(p -> !p.modifiedDate().isEqual(p.creationDate())).toList();
+        productRecords = createRecords();
+        return productRecords.stream().filter(p -> p.modifiedDate() != p.creationDate()).toList();
     }
 
     public List<Category> getAllCategoriesWithOneOrMoreProducts(){
@@ -91,7 +91,6 @@ public class Warehouse {
     }
 
     public boolean modifyProduct(int id, String name, Category category, int rating) {
-        createRecords();
         Optional<Product> productWrapper = getProductById(id);
         if (productWrapper.isEmpty()) {
             return false;
@@ -123,6 +122,9 @@ public class Warehouse {
             }
             productRecords.clear();
             createRecords();
+            for (ProductRecord record : productRecords) {
+                System.out.println(record.modifiedDate());
+            }
         }
 
         return true;

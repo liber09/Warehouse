@@ -1,12 +1,8 @@
 package org.example.service;
 
 import org.example.entities.Category;
-import org.example.service.Warehouse;
 import org.junit.jupiter.api.Test;
-
 import java.time.LocalDate;
-import java.time.Month;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class WarehouseTests {
@@ -192,7 +188,6 @@ public class WarehouseTests {
 
     private void setupTestProducts(){
         LocalDate dateLastMonth = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonth().minus(1), LocalDate.now().getDayOfMonth());
-        LocalDate createdDate = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth());
 
         warehouse.addProduct("Diesel tshirt",Category.TSHIRTS,5,dateLastMonth);
         warehouse.addProduct("Calvin Klein tshirt",Category.TSHIRTS,7,dateLastMonth);
