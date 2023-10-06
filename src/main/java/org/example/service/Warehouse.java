@@ -25,8 +25,8 @@ public class Warehouse {
         Product newProduct = new Product(id,name,category,rating, creationDate);
 
         products.add(newProduct);
-        createRecords();
-        productRecords.add(new ProductRecord(newProduct.getId(),newProduct.getName(),newProduct.getCategory(),newProduct.getRating(),newProduct.getCreatedDate(),newProduct.getModifiedDate()));
+
+        productRecords.add(createRecordFromProduct(newProduct));
 
         return true;
     }
@@ -149,5 +149,11 @@ public class Warehouse {
             productRecordList.add(new ProductRecord(tempProduct.getId(), tempProduct.getName(), tempProduct.getCategory(), tempProduct.getRating(), tempProduct.getCreatedDate(), tempProduct.getModifiedDate()));
         }
         return productRecordList;
+    }
+
+    private ProductRecord createRecordFromProduct(Product product){
+        return new ProductRecord(product.getId(), product.getName(),
+                product.getCategory(), product.getRating(), product.getCreatedDate(),
+                product.getModifiedDate());
     }
 }
