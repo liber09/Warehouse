@@ -80,10 +80,10 @@ public class Warehouse {
                 .toList();
     }
 
-    public boolean modifyProduct(int id, String name, Category category, int rating) {
+    public boolean modifyProduct(int id, String name, Category category, int rating) throws Exception {
         Optional<Product> productWrapper = getProductById(id);
         if (productWrapper.isEmpty()) {
-            return false;
+            throw(new Exception("No product to modify"));
         } else {
             LocalDate modifiedDate = LocalDate.now();
             Product product = productWrapper.get();
@@ -91,24 +91,21 @@ public class Warehouse {
                 product.setName(name);
                 product.setModifiedDate(modifiedDate);
             } else {
-                System.out.println("Product must have a name");
-                return false;
+                throw(new IllegalArgumentException("Product must have a name"));
             }
 
             if (!(category == null)){
                 product.setCategory(category);
                 product.setModifiedDate(modifiedDate);
             } else {
-                System.out.println("Product must belong to a category");
-                return false;
+                throw(new IllegalArgumentException("Product must belong to a category"));
             }
 
             if (rating >= 0 && rating <= 10){
                 product.setRating(rating);
                 product.setModifiedDate(modifiedDate);
             } else{
-                System.out.println("Rating must be between 0 and 10");
-                return false;
+                throw(new IllegalArgumentException("Rating must be between 0 and 10"));
             }
         }
         return true;

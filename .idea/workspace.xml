@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="more refactoring to use createRecordFromProduct method">
+    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="Refactor so modify product throws exception instead of consol.log error messages. Tests now handle exeptions instead">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/service/WarehouseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/service/WarehouseTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +84,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WarehouseTests.getAllModifiedProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WarehouseTests.modifyProductCategoryFails" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Warehouse" />
       <extension name="coverage">
         <pattern>
@@ -93,13 +94,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.service" />
       <option name="MAIN_CLASS_NAME" value="org.example.service.WarehouseTests" />
-      <option name="METHOD_NAME" value="getAllModifiedProducts" />
+      <option name="METHOD_NAME" value="modifyProductCategoryFails" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WarehouseTests.getAllProductsCreatedSinceDateProductsFound (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WarehouseTests.modifyProductNameFails" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Warehouse" />
       <extension name="coverage">
         <pattern>
@@ -109,13 +110,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.service" />
       <option name="MAIN_CLASS_NAME" value="org.example.service.WarehouseTests" />
-      <option name="METHOD_NAME" value="getAllProductsCreatedSinceDateProductsFound" />
+      <option name="METHOD_NAME" value="modifyProductNameFails" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WarehouseTests.modifyProductCategorySuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WarehouseTests.modifyProductNoProductToModify" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Warehouse" />
       <extension name="coverage">
         <pattern>
@@ -125,13 +126,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.service" />
       <option name="MAIN_CLASS_NAME" value="org.example.service.WarehouseTests" />
-      <option name="METHOD_NAME" value="modifyProductCategorySuccess" />
+      <option name="METHOD_NAME" value="modifyProductNoProductToModify" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WarehouseTests.modifyProductRatingSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WarehouseTests.modifyProductRatingTooHighFails" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Warehouse" />
       <extension name="coverage">
         <pattern>
@@ -141,7 +142,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.service" />
       <option name="MAIN_CLASS_NAME" value="org.example.service.WarehouseTests" />
-      <option name="METHOD_NAME" value="modifyProductRatingSuccess" />
+      <option name="METHOD_NAME" value="modifyProductRatingTooHighFails" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -163,10 +164,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.WarehouseTests (1)" />
-        <item itemvalue="JUnit.WarehouseTests.getAllModifiedProducts" />
-        <item itemvalue="JUnit.WarehouseTests.getAllProductsCreatedSinceDateProductsFound (1)" />
-        <item itemvalue="JUnit.WarehouseTests.modifyProductRatingSuccess" />
-        <item itemvalue="JUnit.WarehouseTests.modifyProductCategorySuccess" />
+        <item itemvalue="JUnit.WarehouseTests.modifyProductNoProductToModify" />
+        <item itemvalue="JUnit.WarehouseTests.modifyProductCategoryFails" />
+        <item itemvalue="JUnit.WarehouseTests.modifyProductNameFails" />
+        <item itemvalue="JUnit.WarehouseTests.modifyProductRatingTooHighFails" />
       </list>
     </recent_temporary>
   </component>
@@ -190,7 +191,7 @@
       <workItem from="1695585542496" duration="18000" />
       <workItem from="1695585563305" duration="6931000" />
       <workItem from="1695760517473" duration="4071000" />
-      <workItem from="1696560857981" duration="1926000" />
+      <workItem from="1696560857981" duration="3734000" />
     </task>
     <task id="LOCAL−00001" summary="Created getProductById and Working on modifyProduct">
       <option name="closed" value="true" />
@@ -395,7 +396,14 @@
       <option name="presentableId" value="LOCAL−00029" />
       <updated>1696562354962</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL−00030" summary="changed the need of createRecords and now use createRecordFromProduct to only convert the products matching filter">
+      <option name="closed" value="true" />
+      <created>1696562838254</created>
+      <option name="number" value="LOCAL−00030" />
+      <option name="presentableId" value="LOCAL−00030" />
+      <updated>1696562838254</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,8 +421,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created modifyProduct method and helper setters in Product class" />
-    <MESSAGE value="Created tests for addProduct" />
     <MESSAGE value="Created getAllProducts with test" />
     <MESSAGE value="GetProductByIdTests" />
     <MESSAGE value="ModifyProduct tests and fixes" />
@@ -438,14 +444,16 @@
     <MESSAGE value="Created method to copy product to productrecord and using it on addProduct" />
     <MESSAGE value="refactor getById to use new map method" />
     <MESSAGE value="more refactoring to use createRecordFromProduct method" />
-    <option name="LAST_COMMIT_MESSAGE" value="more refactoring to use createRecordFromProduct method" />
+    <MESSAGE value="changed the need of createRecords and now use createRecordFromProduct to only convert the products matching filter" />
+    <MESSAGE value="Refactor so modify product throws exception instead of consol.log error messages. Tests now handle exeptions instead" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor so modify product throws exception instead of consol.log error messages. Tests now handle exeptions instead" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/org/example/service/WarehouseTests.java</url>
-          <line>151</line>
+          <line>159</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

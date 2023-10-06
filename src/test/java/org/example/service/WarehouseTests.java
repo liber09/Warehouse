@@ -42,7 +42,7 @@ public class WarehouseTests {
     }
 
     @Test
-    void modifyProductNameSuccess(){
+    void modifyProductNameSuccess() throws Exception {
         setupTestProducts();
         var productWrapper = warehouse.getProductRecordById(1);
         productWrapper.ifPresent(product -> assertEquals("Diesel tshirt", product.name()));
@@ -53,15 +53,15 @@ public class WarehouseTests {
 
     }
     @Test
-    void modifyProductNameFails(){
+    void modifyProductNameFails() {
         setupTestProducts();
         var productWrapper = warehouse.getProductRecordById(1);
         productWrapper.ifPresent(product -> assertEquals("Diesel tshirt", product.name()));
-        var result = warehouse.modifyProduct(1,"",Category.TSHIRTS,5);
-        assertFalse(result);
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> warehouse.modifyProduct(1,"",Category.TSHIRTS,5));
+        assertTrue(ex.getMessage().contains("Product must have a name"));
     }
     @Test
-    void modifyProductCategorySuccess(){
+    void modifyProductCategorySuccess() throws Exception {
         setupTestProducts();
         var productWrapper = warehouse.getProductRecordById(1);
         productWrapper.ifPresent(product -> assertEquals(Category.TSHIRTS, product.category()));
@@ -71,17 +71,24 @@ public class WarehouseTests {
         productWrapper.ifPresent(product -> assertEquals(Category.LONGSLEVE, product.category()));
 
     }
+
     @Test
-    void modifyProductCategoryFails(){
+    void modifyProductNoProductToModify() {
         setupTestProducts();
-        var productWrapper = warehouse.getProductRecordById(1);
-        productWrapper.ifPresent(product -> assertEquals("Diesel tshirt", product.name()));
-        var result = warehouse.modifyProduct(1,"Diesel tshirt",null,5);
-        assertFalse(result);
+        Exception ex = assertThrows(Exception.class, () -> warehouse.modifyProduct(25,"Diesel tshirt",null,5));
+        assertTrue(ex.getMessage().contains("No product to modify"));
+
     }
 
     @Test
-    void modifyProductRatingSuccess(){
+    void modifyProductCategoryFails() {
+        setupTestProducts();
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> warehouse.modifyProduct(1,"Diesel tshirt",null,5));
+        assertTrue(ex.getMessage().contains("Product must belong to a category"));
+    }
+
+    @Test
+    void modifyProductRatingSuccess() throws Exception {
         setupTestProducts();
         var productWrapper = warehouse.getProductRecordById(1);
         productWrapper.ifPresent(product -> assertEquals(5, product.rating()));
@@ -89,23 +96,24 @@ public class WarehouseTests {
         assertTrue(result);
         productWrapper = warehouse.getProductRecordById(1);
         productWrapper.ifPresent(product -> assertEquals(6, product.rating()));
+    }
+    @Test
+    void modifyProductRatingTooHighFails() {
+        setupTestProducts();
+        var productWrapper = warehouse.getProductRecordById(1);
+        productWrapper.ifPresent(product -> assertEquals(5, product.rating()));
 
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> warehouse.modifyProduct(1,"Diesel tshirt",Category.TSHIRTS,11));
+        assertTrue(ex.getMessage().contains("Rating must be between 0 and 10"));
     }
     @Test
-    void modifyProductRatingTooHighFails(){
+    void modifyProductRatingNegativeNumberFails() {
         setupTestProducts();
         var productWrapper = warehouse.getProductRecordById(1);
         productWrapper.ifPresent(product -> assertEquals(5, product.rating()));
-        var result = warehouse.modifyProduct(1,"Diesel tshirt",Category.TSHIRTS,11);
-        assertFalse(result);
-    }
-    @Test
-    void modifyProductRatingNegativeNumberFails(){
-        setupTestProducts();
-        var productWrapper = warehouse.getProductRecordById(1);
-        productWrapper.ifPresent(product -> assertEquals(5, product.rating()));
-        var result = warehouse.modifyProduct(1,"Diesel tshirt",Category.TSHIRTS,-1);
-        assertFalse(result);
+
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> warehouse.modifyProduct(1,"Diesel tshirt",Category.TSHIRTS,-1));
+        assertTrue(ex.getMessage().contains("Rating must be between 0 and 10"));
     }
 
     @Test
@@ -135,7 +143,7 @@ public class WarehouseTests {
     }
 
     @Test
-    void getAllModifiedProducts(){
+    void getAllModifiedProducts() throws Exception {
         setupTestProducts();
         warehouse.modifyProduct(5,"Pink softpants",Category.PANTS,4);
         warehouse.modifyProduct(8,"Nike cap",Category.HATS,8);
