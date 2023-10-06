@@ -38,8 +38,8 @@ public class Warehouse {
 
     public Optional<ProductRecord> getProductRecordById(int id) {
         createRecords();
-        return productRecords.stream()
-                .filter(p -> p.id() == id).findFirst();
+        return products.stream()
+                .filter(p -> p.getId() == id).map(this::createRecordFromProduct).findFirst();
     }
 
     public Optional<Product> getProductById(int id) {

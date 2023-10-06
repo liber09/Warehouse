@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="finally all tests are working">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="Created method to copy product to productrecord and using it on addProduct">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,7 +189,7 @@
       <workItem from="1695585542496" duration="18000" />
       <workItem from="1695585563305" duration="6931000" />
       <workItem from="1695760517473" duration="4071000" />
-      <workItem from="1696560857981" duration="587000" />
+      <workItem from="1696560857981" duration="937000" />
     </task>
     <task id="LOCAL−00001" summary="Created getProductById and Working on modifyProduct">
       <option name="closed" value="true" />
@@ -374,7 +373,14 @@
       <option name="presentableId" value="LOCAL−00026" />
       <updated>1695783328084</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL−00027" summary="Created method to copy product to productrecord and using it on addProduct">
+      <option name="closed" value="true" />
+      <created>1696561549252</created>
+      <option name="number" value="LOCAL−00027" />
+      <option name="presentableId" value="LOCAL−00027" />
+      <updated>1696561549252</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,7 +421,8 @@
     <MESSAGE value="1 test still fails" />
     <MESSAGE value="rewriting some tests" />
     <MESSAGE value="finally all tests are working" />
-    <option name="LAST_COMMIT_MESSAGE" value="finally all tests are working" />
+    <MESSAGE value="Created method to copy product to productrecord and using it on addProduct" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created method to copy product to productrecord and using it on addProduct" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
