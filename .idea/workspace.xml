@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="Created method to copy product to productrecord and using it on addProduct">
+    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="refactor getById to use new map method">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -189,7 +189,7 @@
       <workItem from="1695585542496" duration="18000" />
       <workItem from="1695585563305" duration="6931000" />
       <workItem from="1695760517473" duration="4071000" />
-      <workItem from="1696560857981" duration="937000" />
+      <workItem from="1696560857981" duration="1456000" />
     </task>
     <task id="LOCAL−00001" summary="Created getProductById and Working on modifyProduct">
       <option name="closed" value="true" />
@@ -380,7 +380,14 @@
       <option name="presentableId" value="LOCAL−00027" />
       <updated>1696561549252</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL−00028" summary="refactor getById to use new map method">
+      <option name="closed" value="true" />
+      <created>1696561858229</created>
+      <option name="number" value="LOCAL−00028" />
+      <option name="presentableId" value="LOCAL−00028" />
+      <updated>1696561858229</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,7 +429,8 @@
     <MESSAGE value="rewriting some tests" />
     <MESSAGE value="finally all tests are working" />
     <MESSAGE value="Created method to copy product to productrecord and using it on addProduct" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created method to copy product to productrecord and using it on addProduct" />
+    <MESSAGE value="refactor getById to use new map method" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor getById to use new map method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

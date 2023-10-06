@@ -48,13 +48,11 @@ public class Warehouse {
     }
 
     public List<ProductRecord> getAllProductsInCategory(Category category){
-        createRecords();
-        return productRecords.stream().filter(p -> p.category().equals(category)).sorted(Comparator.comparing(ProductRecord::name)).toList();
+        return products.stream().filter(p -> p.getCategory().equals(category)).map(this::createRecordFromProduct).sorted(Comparator.comparing(ProductRecord::name)).toList();
     }
 
     public List<ProductRecord> getAllProductsCreatedSince(LocalDate createdDate){
-        createRecords();
-        return productRecords.stream().filter(p -> p.creationDate().isAfter(createdDate)).toList();
+        return products.stream().filter(p -> p.getCreatedDate().isAfter(createdDate)).map(this::createRecordFromProduct).toList();
     }
 
     public List<ProductRecord> getAllModifiedProducts(){
