@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="refactor getById to use new map method">
+    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="more refactoring to use createRecordFromProduct method">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -189,7 +190,7 @@
       <workItem from="1695585542496" duration="18000" />
       <workItem from="1695585563305" duration="6931000" />
       <workItem from="1695760517473" duration="4071000" />
-      <workItem from="1696560857981" duration="1456000" />
+      <workItem from="1696560857981" duration="1926000" />
     </task>
     <task id="LOCAL−00001" summary="Created getProductById and Working on modifyProduct">
       <option name="closed" value="true" />
@@ -387,7 +388,14 @@
       <option name="presentableId" value="LOCAL−00028" />
       <updated>1696561858229</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL−00029" summary="more refactoring to use createRecordFromProduct method">
+      <option name="closed" value="true" />
+      <created>1696562354962</created>
+      <option name="number" value="LOCAL−00029" />
+      <option name="presentableId" value="LOCAL−00029" />
+      <updated>1696562354962</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,7 +413,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created getProductById and Working on modifyProduct" />
     <MESSAGE value="Created modifyProduct method and helper setters in Product class" />
     <MESSAGE value="Created tests for addProduct" />
     <MESSAGE value="Created getAllProducts with test" />
@@ -430,7 +437,8 @@
     <MESSAGE value="finally all tests are working" />
     <MESSAGE value="Created method to copy product to productrecord and using it on addProduct" />
     <MESSAGE value="refactor getById to use new map method" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor getById to use new map method" />
+    <MESSAGE value="more refactoring to use createRecordFromProduct method" />
+    <option name="LAST_COMMIT_MESSAGE" value="more refactoring to use createRecordFromProduct method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

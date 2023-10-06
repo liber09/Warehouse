@@ -9,7 +9,6 @@ import java.util.*;
 
 public class Warehouse {
     private final ArrayList<Product> products = new ArrayList<>();
-    private ArrayList<ProductRecord> productRecords = createRecords();
 
     public boolean addProduct(String name, Category category, int rating, LocalDate creationDate) {
         if(name.trim().isEmpty()){
@@ -26,18 +25,14 @@ public class Warehouse {
 
         products.add(newProduct);
 
-        productRecords.add(createRecordFromProduct(newProduct));
-
         return true;
     }
 
     public List<ProductRecord> getAllProducts(){
-        createRecords();
-        return productRecords.stream().toList();
+        return products.stream().map(this::createRecordFromProduct).toList();
     }
 
     public Optional<ProductRecord> getProductRecordById(int id) {
-        createRecords();
         return products.stream()
                 .filter(p -> p.getId() == id).map(this::createRecordFromProduct).findFirst();
     }
@@ -56,13 +51,10 @@ public class Warehouse {
     }
 
     public List<ProductRecord> getAllModifiedProducts(){
-        productRecords.clear();
-        productRecords = createRecords();
-        return productRecords.stream().filter(p -> p.modifiedDate() != p.creationDate()).toList();
+        return products.stream().filter(p -> p.getModifiedDate() != p.getCreatedDate()).map(this::createRecordFromProduct).toList();
     }
 
     public List<Category> getAllCategoriesWithOneOrMoreProducts(){
-        createRecords();
         List<Category> categoriesWithProducts = new ArrayList<>();
         List<ProductRecord> tempProducts;
         for (Category category : EnumSet.allOf(Category.class)) {
@@ -79,11 +71,11 @@ public class Warehouse {
     }
 
     public List<ProductRecord> getProductsWithMaxRatingSortedByDate(){
-        createRecords();
         int maxRating = 10;
-        return productRecords.stream()
-                .filter(p -> p.rating() == maxRating &&
-                        p.creationDate().getMonth().equals(LocalDate.now().getMonth()))
+        return products.stream()
+                .filter(p -> p.getRating() == maxRating &&
+                        p.getCreatedDate().getMonth().equals(LocalDate.now().getMonth()))
+                .map(this::createRecordFromProduct)
                 .sorted(Comparator.comparing(ProductRecord::creationDate))
                 .toList();
     }
@@ -118,13 +110,7 @@ public class Warehouse {
                 System.out.println("Rating must be between 0 and 10");
                 return false;
             }
-            productRecords.clear();
-            createRecords();
-            for (ProductRecord record : productRecords) {
-                System.out.println(record.modifiedDate());
-            }
         }
-
         return true;
     }
 
@@ -139,14 +125,6 @@ public class Warehouse {
             }
         }
         return firstLetterCount;
-    }
-
-    private ArrayList<ProductRecord> createRecords(){
-        ArrayList<ProductRecord> productRecordList = new ArrayList<>();
-        for (Product tempProduct : products) {
-            productRecordList.add(new ProductRecord(tempProduct.getId(), tempProduct.getName(), tempProduct.getCategory(), tempProduct.getRating(), tempProduct.getCreatedDate(), tempProduct.getModifiedDate()));
-        }
-        return productRecordList;
     }
 
     private ProductRecord createRecordFromProduct(Product product){
