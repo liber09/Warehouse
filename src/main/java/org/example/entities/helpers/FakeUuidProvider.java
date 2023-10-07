@@ -4,6 +4,7 @@ import org.example.interfaces.UuidProvider;
 
 import java.util.UUID;
 
+//Class used only by tests to be able to handle testcases when we need to know the UUID that has been created
 public class FakeUuidProvider implements UuidProvider {
 
     public UUID genterateUuid(int testId){

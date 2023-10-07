@@ -3,6 +3,7 @@ import org.example.interfaces.UuidProvider;
 
 import java.util.UUID;
 
+//Production class to create random UUID that we do not need to know
 public class RandomUuidProvider implements UuidProvider {
     @Override
     public UUID uuid() {
