@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="change from int to UUID och productID">
+    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="added comments to UUID generator classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/helpers/FakeUuidProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/helpers/FakeUuidProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/helpers/RandomUuidProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/helpers/RandomUuidProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/service/WarehouseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/service/WarehouseTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +101,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WarehouseTests.modifyProductCategoryFails" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WarehouseTests.getProductByIdProductNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Warehouse" />
       <extension name="coverage">
         <pattern>
@@ -111,13 +111,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.service" />
       <option name="MAIN_CLASS_NAME" value="org.example.service.WarehouseTests" />
-      <option name="METHOD_NAME" value="modifyProductCategoryFails" />
+      <option name="METHOD_NAME" value="getProductByIdProductNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WarehouseTests.modifyProductNoProductToModify" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WarehouseTests.modifyProductNameSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Warehouse" />
       <extension name="coverage">
         <pattern>
@@ -127,7 +127,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.service" />
       <option name="MAIN_CLASS_NAME" value="org.example.service.WarehouseTests" />
-      <option name="METHOD_NAME" value="modifyProductNoProductToModify" />
+      <option name="METHOD_NAME" value="modifyProductNameSuccess" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -165,10 +165,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.WarehouseTests (1)" />
-        <item itemvalue="JUnit.WarehouseTests.modifyProductRatingSuccess" />
         <item itemvalue="JUnit.WarehouseTests.getProductByIdProductFound" />
-        <item itemvalue="JUnit.WarehouseTests.modifyProductNoProductToModify" />
-        <item itemvalue="JUnit.WarehouseTests.modifyProductCategoryFails" />
+        <item itemvalue="JUnit.WarehouseTests.modifyProductNameSuccess" />
+        <item itemvalue="JUnit.WarehouseTests.getProductByIdProductNotFound" />
+        <item itemvalue="JUnit.WarehouseTests.modifyProductRatingSuccess" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +192,7 @@
       <workItem from="1695585542496" duration="18000" />
       <workItem from="1695585563305" duration="6931000" />
       <workItem from="1695760517473" duration="4071000" />
-      <workItem from="1696560857981" duration="7823000" />
+      <workItem from="1696560857981" duration="9126000" />
     </task>
     <task id="LOCAL−00001" summary="Created getProductById and Working on modifyProduct">
       <option name="closed" value="true" />
@@ -418,7 +418,14 @@
       <option name="presentableId" value="LOCAL−00032" />
       <updated>1696649005888</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL−00033" summary="added comments to UUID generator classes">
+      <option name="closed" value="true" />
+      <created>1696649141799</created>
+      <option name="number" value="LOCAL−00033" />
+      <option name="presentableId" value="LOCAL−00033" />
+      <updated>1696649141799</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,7 +443,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="GetProductByIdTests" />
     <MESSAGE value="ModifyProduct tests and fixes" />
     <MESSAGE value="ModifyProductCategory tests" />
     <MESSAGE value="ModifyProductRating tests" />
@@ -461,15 +467,26 @@
     <MESSAGE value="changed the need of createRecords and now use createRecordFromProduct to only convert the products matching filter" />
     <MESSAGE value="Refactor so modify product throws exception instead of consol.log error messages. Tests now handle exeptions instead" />
     <MESSAGE value="change from int to UUID och productID" />
-    <option name="LAST_COMMIT_MESSAGE" value="change from int to UUID och productID" />
+    <MESSAGE value="added comments to UUID generator classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comments to UUID generator classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/org/example/service/WarehouseTests.java</url>
-          <line>161</line>
+          <line>162</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/example/service/WarehouseTests.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

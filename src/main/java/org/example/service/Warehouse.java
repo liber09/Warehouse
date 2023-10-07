@@ -34,7 +34,7 @@ public class Warehouse {
 
     public Optional<ProductRecord> getProductRecordById(UUID id) {
         return products.stream()
-                .filter(p -> p.getId() == id).map(this::createRecordFromProduct).findFirst();
+                .filter(p -> p.getId().equals(id)).map(this::createRecordFromProduct).findFirst();
     }
 
     public Optional<Product> getProductById(UUID id) {

@@ -34,7 +34,8 @@ public class WarehouseTests {
     void getProductByIdProductFound(){
         setupTestProducts();
         var productWrapper = warehouse.getProductRecordById(UUID.fromString("0000-00-00-00-000010"));
-        productWrapper.ifPresent(product -> assertEquals("Calvin Klein skinny jeans", product.name()));
+        assertTrue(productWrapper.isPresent());
+        assertEquals("Calvin Klein skinny jeans", productWrapper.get().name());
     }
     @Test
     void getProductByIdProductNotFound(){
