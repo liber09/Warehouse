@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="added comments to UUID generator classes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ae28e5cd-51ae-4097-9936-93636ed8cbcc" name="Changes" comment="GetProductById did == check. changed to equals">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/service/WarehouseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/service/WarehouseTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +190,7 @@
       <workItem from="1695585542496" duration="18000" />
       <workItem from="1695585563305" duration="6931000" />
       <workItem from="1695760517473" duration="4071000" />
-      <workItem from="1696560857981" duration="9126000" />
+      <workItem from="1696560857981" duration="9330000" />
     </task>
     <task id="LOCAL−00001" summary="Created getProductById and Working on modifyProduct">
       <option name="closed" value="true" />
@@ -425,7 +423,14 @@
       <option name="presentableId" value="LOCAL−00033" />
       <updated>1696649141799</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL−00034" summary="GetProductById did == check. changed to equals">
+      <option name="closed" value="true" />
+      <created>1696650502119</created>
+      <option name="number" value="LOCAL−00034" />
+      <option name="presentableId" value="LOCAL−00034" />
+      <updated>1696650502119</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +448,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ModifyProduct tests and fixes" />
     <MESSAGE value="ModifyProductCategory tests" />
     <MESSAGE value="ModifyProductRating tests" />
     <MESSAGE value="getAllProductsInCategorySortedAlphabetically incl test" />
@@ -468,7 +472,8 @@
     <MESSAGE value="Refactor so modify product throws exception instead of consol.log error messages. Tests now handle exeptions instead" />
     <MESSAGE value="change from int to UUID och productID" />
     <MESSAGE value="added comments to UUID generator classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="added comments to UUID generator classes" />
+    <MESSAGE value="GetProductById did == check. changed to equals" />
+    <option name="LAST_COMMIT_MESSAGE" value="GetProductById did == check. changed to equals" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -485,7 +490,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/service/Warehouse.java</url>
-          <line>128</line>
+          <line>122</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>

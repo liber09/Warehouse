@@ -6,6 +6,7 @@ import org.example.entities.ProductRecord;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Warehouse {
     private final ArrayList<Product> products = new ArrayList<>();
@@ -111,17 +112,11 @@ public class Warehouse {
         return true;
     }
 
-    public Map<String,Integer> getProductLetterAndProductCount(){
-        Map<String,Integer> firstLetterCount = new HashMap<>();
-        for (Product product : products) {
-            String tempProductFirstLetter = product.getName().substring(0, 1);
-            if (!firstLetterCount.containsKey(tempProductFirstLetter)) {
-                firstLetterCount.put(tempProductFirstLetter, 1);
-            } else {
-                firstLetterCount.put(tempProductFirstLetter, firstLetterCount.get(tempProductFirstLetter) + 1);
-            }
-        }
-        return firstLetterCount;
+    public Map<String, Long> getProductLetterAndProductCount(){
+        return products.stream()
+                .collect(Collectors
+                        .groupingBy(product -> product.getName().substring(0,1),
+                                Collectors.counting()));
     }
 
     private ProductRecord createRecordFromProduct(Product product){
