@@ -1,17 +1,29 @@
 package org.example.entities;
 
+import org.example.entities.helpers.FakeUuidProvider;
+import org.example.entities.helpers.RandomUuidProvider;
+import org.example.interfaces.UuidProvider;
+
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Product {
-    private final int id;
+    private final UUID id;
     private String name;
     private Category category;
     private int rating;
     private final LocalDate createdDate;
     private LocalDate modifiedDate;
 
-    public Product(int id, String name, Category category, int rating, LocalDate creationDate) {
-        this.id = id;
+    public Product(String name, Category category, int rating, LocalDate creationDate, Boolean isTest, int testId) {
+        if(!isTest){
+            UuidProvider uuidProvider = new RandomUuidProvider();
+            this.id = uuidProvider.uuid();
+        }else{
+            UuidProvider uuidProviderTest = new FakeUuidProvider();
+            this.id = uuidProviderTest.genterateUuid(testId);
+        }
+
         this.name = name;
         this.category = category;
         this.rating = rating;
@@ -19,7 +31,7 @@ public class Product {
         this.modifiedDate = createdDate;
     }
 
-    public Integer getId(){
+    public UUID getId(){
         return this.id;
     }
 

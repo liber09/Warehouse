@@ -10,7 +10,8 @@ import java.util.*;
 public class Warehouse {
     private final ArrayList<Product> products = new ArrayList<>();
 
-    public boolean addProduct(String name, Category category, int rating, LocalDate creationDate) {
+
+    public boolean addProduct(String name, Category category, int rating, LocalDate creationDate, Boolean isTest, int testId) {
         if(name.trim().isEmpty()){
             System.out.println("Can't add products without name");
             return false;
@@ -20,8 +21,7 @@ public class Warehouse {
             category = Category.OTHER;
         }
 
-        int id = products.size()+1;
-        Product newProduct = new Product(id,name,category,rating, creationDate);
+        Product newProduct = new Product(name,category,rating, creationDate, isTest, testId);
 
         products.add(newProduct);
 
@@ -32,12 +32,12 @@ public class Warehouse {
         return products.stream().map(this::createRecordFromProduct).toList();
     }
 
-    public Optional<ProductRecord> getProductRecordById(int id) {
+    public Optional<ProductRecord> getProductRecordById(UUID id) {
         return products.stream()
                 .filter(p -> p.getId() == id).map(this::createRecordFromProduct).findFirst();
     }
 
-    public Optional<Product> getProductById(int id) {
+    public Optional<Product> getProductById(UUID id) {
         return products.stream()
                 .filter(p -> p.getId().equals(id)).findFirst();
     }
@@ -80,7 +80,7 @@ public class Warehouse {
                 .toList();
     }
 
-    public boolean modifyProduct(int id, String name, Category category, int rating) throws Exception {
+    public boolean modifyProduct(UUID id, String name, Category category, int rating) throws Exception {
         Optional<Product> productWrapper = getProductById(id);
         if (productWrapper.isEmpty()) {
             throw(new Exception("No product to modify"));
